@@ -10,7 +10,6 @@ import com.github.ymaniz09.koindemo.util.UrlHelper
 import com.google.gson.Gson
 import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
-import org.koin.experimental.builder.scope
 
 val applicationModule = module {
     single { Gson() }
@@ -23,5 +22,5 @@ val applicationModule = module {
 
 val browseModule = module("browse") {
     factory { CurrenciesListAdapter() }
-    viewModel { CurrenciesViewModel(get()) }
+    viewModel { (jsonString: String) -> CurrenciesViewModel(get(), jsonString) }
 }

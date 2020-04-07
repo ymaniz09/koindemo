@@ -6,13 +6,13 @@ import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.content.ContextCompat
 import com.github.ymaniz09.koindemo.R
 
-class UrlHelper {
+class UrlHelper(private val baseUrl: String) {
 
     fun launchCurrencyUrl(context: Context, slug: String) {
-        launchUrl(context, Uri.parse("$BASE_URL$slug"))
+        launchUrl(context, Uri.parse("$baseUrl$slug"))
     }
 
-    fun launchUrl(context: Context, uri: Uri) {
+    private fun launchUrl(context: Context, uri: Uri) {
         val customTabsIntent = CustomTabsIntent.Builder()
             .addDefaultShareMenuItem()
             .setToolbarColor(
@@ -21,9 +21,5 @@ class UrlHelper {
             .setShowTitle(true)
             .build()
         customTabsIntent.launchUrl(context, uri)
-    }
-
-    companion object {
-        private const val BASE_URL = "https://coinmarketcap.com/currencies/"
     }
 }

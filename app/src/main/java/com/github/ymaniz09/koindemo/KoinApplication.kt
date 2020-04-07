@@ -10,7 +10,8 @@ class KoinApplication : Application() {
             this, listOf(
                 applicationModule,
                 browseModule
-            )
+            ),
+            loadProperties = true
         )
     }
 }

@@ -14,7 +14,7 @@ import org.koin.experimental.builder.scope
 
 val applicationModule = module {
     single { Gson() }
-    single { UrlHelper() }
+    single { UrlHelper(getProperty("currency_base_url")) }
 
     factory<DataRepository>("local") { LocalDataRepository(get()) }
     factory<DataRepository>("remote") { RemoteDataRepository() }

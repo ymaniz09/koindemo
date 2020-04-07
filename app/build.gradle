@@ -28,6 +28,7 @@ android {
 dependencies {
 
     def koinVersion = '1.0.0'
+    def lifecycleVersion = "2.2.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -40,6 +41,9 @@ dependencies {
     implementation "org.koin:koin-android-scope:$koinVersion"
 
     implementation 'com.google.code.gson:gson:2.8.5'
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

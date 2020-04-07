@@ -5,14 +5,13 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.ymaniz09.koindemo.R
 import com.github.ymaniz09.koindemo.data.DataRepository
-import com.github.ymaniz09.koindemo.data.DataRepositoryImpl
 import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity() {
 
     private val currenciesListAdapter: CurrenciesListAdapter by inject()
-    private val dataRepository by inject<DataRepository>()
+    private val dataRepository by inject<DataRepository>("local")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

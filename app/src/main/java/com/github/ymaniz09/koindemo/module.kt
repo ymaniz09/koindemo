@@ -5,7 +5,10 @@ import com.github.ymaniz09.koindemo.data.DataRepositoryFactory
 import com.github.ymaniz09.koindemo.data.LocalDataRepository
 import com.github.ymaniz09.koindemo.data.RemoteDataRepository
 import com.github.ymaniz09.koindemo.ui.CurrenciesListAdapter
+import com.github.ymaniz09.koindemo.ui.CurrenciesViewModel
 import com.google.gson.Gson
+import org.koin.android.viewmodel.experimental.builder.viewModel
+import org.koin.android.viewmodel.ext.koin.viewModel
 import org.koin.dsl.module.module
 
 val applicationModule = module {
@@ -14,4 +17,5 @@ val applicationModule = module {
     factory<DataRepository>("local") { LocalDataRepository(get()) }
     factory<DataRepository>("remote") { RemoteDataRepository() }
     factory { DataRepositoryFactory(get("local"), get("remote")) }
+    viewModel {CurrenciesViewModel(get())}
 }

@@ -65,8 +65,7 @@ class CurrenciesListAdapter(private val interaction: Interaction? = null) :
                 interaction?.onItemSelected(adapterPosition, item)
             }
 
-            itemView.textName.text = item.name
-            itemView.textSymbol.text = item.symbol
+            itemView.viewCurrency.setCurrency(item)
         }
     }
 
